@@ -17,6 +17,7 @@
 package jp.co.omronsoft.openwnn;
 
 import android.os.Bundle;
+import android.preference.Preference;
 import android.preference.PreferenceActivity;
 
 /**
@@ -25,6 +26,7 @@ import android.preference.PreferenceActivity;
  * @author Copyright (C) 2009 OMRON SOFTWARE CO., LTD.  All Rights Reserved.
  */
 public class OpenWnnControlPanelJAJP extends PreferenceActivity {
+    private static final String KEY_CLEAR_LEARN_DICTIONARY = "clear_learn_dictionary";
 
     /** @see android.preference.PreferenceActivity#onCreate */
     @Override public void onCreate(Bundle savedInstanceState) {
@@ -34,5 +36,10 @@ public class OpenWnnControlPanelJAJP extends PreferenceActivity {
         }
 
         addPreferencesFromResource(R.xml.openwnn_pref_ja);
+
+        if (OpenWnn.getCurrentIme() == null) {
+            Preference preference = findPreference(KEY_CLEAR_LEARN_DICTIONARY);
+            preference.setEnabled(false);
+        }
     }
 }
