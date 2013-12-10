@@ -39,7 +39,9 @@ public class OpenWnnControlPanelJAJP extends PreferenceActivity {
 
         if (OpenWnn.getCurrentIme() == null) {
             Preference preference = findPreference(KEY_CLEAR_LEARN_DICTIONARY);
-            preference.setEnabled(false);
+            if (preference != null) {
+                preference.setEnabled(false);
+            }
         }
     }
 }
