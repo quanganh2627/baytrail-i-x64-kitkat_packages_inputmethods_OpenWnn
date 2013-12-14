@@ -492,11 +492,6 @@ public class OpenWnnEngineJAJP implements WnnEngine {
     /** @see jp.co.omronsoft.openwnn.WnnEngine#learn */
     public boolean learn(WnnWord word) {
         int ret = -1;
-
-        if (word == null || word.partOfSpeech == null) {
-            return false;
-        }
-
         if (word.partOfSpeech.right == 0) {
             word.partOfSpeech = mDictionaryJP.getPOS(WnnDictionary.POS_TYPE_MEISI);
         }
