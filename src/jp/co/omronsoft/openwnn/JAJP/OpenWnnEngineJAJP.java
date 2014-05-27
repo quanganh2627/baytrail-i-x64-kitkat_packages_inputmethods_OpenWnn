@@ -155,6 +155,7 @@ public class OpenWnnEngineJAJP implements WnnEngine {
         /* converters */
         mClauseConverter = new OpenWnnClauseConverterJAJP();
         mKanaConverter = new KanaConverter();
+        init();
     }
 
     /**
